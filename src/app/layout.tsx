@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { ToastContainer } from "react-toastify";
 
+import ScreenSizeIndicator from "@/utils/ScreenSizeIndicator";
 import QueryClientProviderWrapper from "@/providers/QueryClient";
 
 const geistSans = localFont({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <QueryClientProviderWrapper>
           {children}
+          <ScreenSizeIndicator />
           <ToastContainer />
         </QueryClientProviderWrapper>
       </body>
