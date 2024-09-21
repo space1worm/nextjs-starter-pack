@@ -3,10 +3,12 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 
 import ScreenSizeIndicator from "@/utils/ScreenSizeIndicator";
 import QueryClientProviderWrapper from "@/providers/QueryClient";
+import Header from "@/components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,14 +32,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <QueryClientProviderWrapper>
-          {children}
-          <ScreenSizeIndicator />
-          <ToastContainer />
-        </QueryClientProviderWrapper>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <QueryClientProviderWrapper>
+            <Header />
+            {children}
+            <ScreenSizeIndicator />
+            <ToastContainer />
+          </QueryClientProviderWrapper>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

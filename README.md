@@ -2,9 +2,21 @@
 
 This starter pack provides a comprehensive Next.js setup, built on top of `create-next-app`, and includes additional features such as:
 
+### Auth Provider
+
+- **Clerk**: For authentication and user management.
+
+### State Managment
+
 - **TanStack Query**: For powerful data fetching and state management.
 - **Zustand**: For global state management.
+
+### Type safery and validation
+
 - **Zod**: For type-safe validation and parsing.
+
+### Styling
+
 - **Shadcn/UI**: A collection of components for beautiful UI.
 - **ESLint Configuration**: Basic ESLint setup for code quality.
 - **Prettier Configuration**: Code formatting for consistency.
