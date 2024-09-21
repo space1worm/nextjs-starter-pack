@@ -2,19 +2,18 @@ export const apiRequest = async <T>(url: string, options: RequestInit = {}): Pro
   const res = await fetch(url, {
     ...options,
     headers: {
-      "Content-Type": "application/json", // Default content type, can be overridden
-      ...options.headers, // Allow overriding or adding more headers
+      "Content-Type": "application/json",
+      ...options.headers,
     },
   });
 
   if (!res.ok) {
-    // Handle non-2xx HTTP responses
     const errorBody = await res.text();
     throw new Error(`Network response was not ok. Status: ${res.status}. Body: ${errorBody}`);
   }
 
   try {
-    return (await res.json()) as T; // Type-safe JSON parsing
+    return (await res.json()) as T;
   } catch (error) {
     throw new Error("Failed to parse response as JSON.");
   }
