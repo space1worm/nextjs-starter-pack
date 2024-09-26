@@ -6,6 +6,10 @@ This starter pack provides a comprehensive Next.js setup, built on top of `creat
 
 - **Clerk**: For authentication and user management.
 
+### Database - ORM
+
+- **Prisma**: For database access and ORM.
+
 ### State Managment
 
 - **TanStack Query**: For powerful data fetching and state management.
