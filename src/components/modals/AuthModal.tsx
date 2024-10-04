@@ -1,7 +1,8 @@
 "use client";
 
-import { RedirectToSignIn } from "@clerk/nextjs";
 import { useState } from "react";
+
+import { RedirectToSignIn } from "@clerk/nextjs";
 
 import { useModalsStore } from "@/providers/ModalsProvider";
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ export default function AuthModal() {
   return (
     <>
       <Dialog open={authModalOpen} onOpenChange={authModelOpenChange}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-lg">
           <DialogHeader>
             <DialogTitle>Sign In to Dreamers</DialogTitle>
             <DialogDescription>A Dreamers account is required to use wishlist.</DialogDescription>

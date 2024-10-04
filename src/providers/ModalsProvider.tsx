@@ -1,9 +1,10 @@
 "use client";
 
-import { createModalsStore, type ModalsStore } from "@/stores/modalsStore";
+import { createContext, useContext, useRef, type ReactNode } from "react";
+
 import { useStore } from "zustand";
 
-import { createContext, useContext, useRef, type ReactNode } from "react";
+import { createModalsStore, type ModalsStore } from "@/stores/modalsStore";
 
 export type ModalsStoreApi = ReturnType<typeof createModalsStore>;
 export const ModalsStoreContext = createContext<ModalsStoreApi | undefined>(undefined);

@@ -15,7 +15,6 @@ export const apiRequest = async <T>(url: string, options: RequestInit = {}): Pro
   try {
     return (await res.json()) as T;
   } catch (error) {
-    console.error(error);
     throw new Error("Failed to parse response as JSON.");
   }
 };

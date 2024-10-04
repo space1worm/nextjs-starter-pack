@@ -3,3 +3,6 @@
 .next
 /prisma
 /public
+pnpm-lock.yaml
+package.json
+spacersdream.code-workspace

@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 
-import ScreenSizeIndicator from "@/utils/ScreenSizeIndicator";
+import { ModalsStoreProvider } from "@/providers/ModalsProvider";
 import QueryClientProviderWrapper from "@/providers/QueryClient";
-import Header from "@/components/Header";
+import AuthButton from "@/components/AuthButton";
+import Footer from "@/components/Footer";
+import AuthModal from "@/components/modals/AuthModal";
+import GridBackground from "@/components/shared/GridBackground";
+import ScreenSizeIndicator from "@/components/shared/ScreenSizeIndicator";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,10 +41,17 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <QueryClientProviderWrapper>
-            <Header />
-            {children}
+            <ModalsStoreProvider>
+              <GridBackground />
+              <div className="flex w-screen justify-center">
+                <AuthButton />
+                <ToastContainer />
+                {children}
+                <Footer />
+                <AuthModal />
+              </div>
+            </ModalsStoreProvider>
             <ScreenSizeIndicator />
-            <ToastContainer />
           </QueryClientProviderWrapper>
         </body>
       </html>
